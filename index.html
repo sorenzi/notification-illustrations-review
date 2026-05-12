@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Notification Illustration Review</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #8A9BFF;
+    --border: rgba(0,0,0,0.06);
+    --winner: #FFD93D;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    padding: 24px 16px 12px;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+    position: sticky; top: 0; z-index: 10;
+  }
+  header h1 {
+    margin: 0; font-size: 18px; font-weight: 700;
+  }
+  header p {
+    margin: 4px 0 0; font-size: 13px; color: var(--muted);
+  }
+  section {
+    padding: 24px 16px 8px;
+  }
+  section h2 {
+    font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); margin: 0 0 16px;
+  }
+  .winner-section {
+    background: linear-gradient(180deg, rgba(138,155,255,0.08), transparent 60%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 16px 24px;
+  }
+  .winner-section h2 {
+    color: var(--ink);
+    font-size: 12px;
+  }
+  .winner-badge {
+    display: inline-block;
+    background: var(--winner);
+    color: #1a1a1a;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  .winner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .winner-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .winner-card {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(138,155,255,0.15);
+  }
+  .winner-card .img-wrap {
+    aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .winner-card.transparent .img-wrap {
+    background:
+      linear-gradient(45deg, #e5e5e5 25%, transparent 25%),
+      linear-gradient(-45deg, #e5e5e5 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e5e5e5 75%),
+      linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    background-color: #f0f0f0;
+  }
+  .winner-card img {
+    width: 100%; height: 100%; object-fit: contain;
+    display: block;
+  }
+  .winner-card .meta {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .winner-card .meta .label {
+    font-weight: 700;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 640px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 960px) {
+    .grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .card.is-winner {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(138,155,255,0.25);
+  }
+  .card .img-wrap {
+    aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+    background: #ffffff;
+  }
+  .card img {
+    width: 100%; height: 100%; object-fit: contain;
+    display: block;
+  }
+  .card .meta {
+    padding: 10px 14px 14px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+  }
+  .card .slug {
+    font-size: 13px; font-weight: 600;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  .pill {
+    font-size: 10px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 3px 7px; border-radius: 999px;
+    background: var(--winner); color: #1a1a1a;
+  }
+  footer {
+    padding: 24px 16px 40px;
+    color: var(--muted); font-size: 12px; text-align: center;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Notification illustration review</h1>
+  <p>Winner locked. Other variants kept for context.</p>
+</header>
+
+<section class="winner-section">
+  <h2><span class="winner-badge">Winner</span> pair_card_facing · variant B · "Your daily drop!"</h2>
+  <div class="winner-grid">
+    <div class="winner-card">
+      <div class="img-wrap"><img src="winner/pair_card_facing_B.png" alt="winner raw"></div>
+      <div class="meta"><span class="label">On white</span> · original render</div>
+    </div>
+    <div class="winner-card transparent">
+      <div class="img-wrap"><img src="winner/pair_card_facing_B_transparent.png" alt="winner transparent"></div>
+      <div class="meta"><span class="label">Transparent</span> · ready for asset catalog</div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h2>Re-rolls · pair_card_facing (camera-facing, with text) <span style="opacity:0.6;font-weight:500">· 4</span></h2>
+  <div class="grid">
+    <a class="card" href="images/rerolls_facing/pair_card_facing_A.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls_facing/pair_card_facing_A.png" alt="pair_card_facing_A" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_facing_A</div>
+    
+  </div>
+</a>
+<a class="card is-winner" href="images/rerolls_facing/pair_card_facing_B.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls_facing/pair_card_facing_B.png" alt="pair_card_facing_B" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_facing_B</div>
+    <span class="pill">Winner</span>
+  </div>
+</a>
+<a class="card" href="images/rerolls_facing/pair_card_facing_C.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls_facing/pair_card_facing_C.png" alt="pair_card_facing_C" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_facing_C</div>
+    
+  </div>
+</a>
+<a class="card" href="images/rerolls_facing/pair_card_facing_D.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls_facing/pair_card_facing_D.png" alt="pair_card_facing_D" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_facing_D</div>
+    
+  </div>
+</a>
+  </div>
+</section>
+
+<section>
+  <h2>Re-rolls · pair_card_between (earlier pass, looking at card) <span style="opacity:0.6;font-weight:500">· 5</span></h2>
+  <div class="grid">
+    <a class="card" href="images/rerolls/pair_card_between_01.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls/pair_card_between_01.png" alt="pair_card_between_01" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_between_01</div>
+    
+  </div>
+</a>
+<a class="card" href="images/rerolls/pair_card_between_02.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls/pair_card_between_02.png" alt="pair_card_between_02" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_between_02</div>
+    
+  </div>
+</a>
+<a class="card" href="images/rerolls/pair_card_between_03.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls/pair_card_between_03.png" alt="pair_card_between_03" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_between_03</div>
+    
+  </div>
+</a>
+<a class="card" href="images/rerolls/pair_card_between_04.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls/pair_card_between_04.png" alt="pair_card_between_04" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_between_04</div>
+    
+  </div>
+</a>
+<a class="card" href="images/rerolls/pair_card_between_05.png" target="_blank">
+  <div class="img-wrap"><img src="images/rerolls/pair_card_between_05.png" alt="pair_card_between_05" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_between_05</div>
+    
+  </div>
+</a>
+  </div>
+</section>
+
+
+<section>
+  <h2>V2 · Character-led (Luma + Kai, solo Luma) <span style="opacity:0.6;font-weight:500">· 12</span></h2>
+  <div class="grid">
+    <a class="card" href="images/v2_characters/luma_cradle_orb_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/luma_cradle_orb_raw.png" alt="luma_cradle_orb" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">luma_cradle_orb</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/luma_juggling_cards_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/luma_juggling_cards_raw.png" alt="luma_juggling_cards" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">luma_juggling_cards</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/luma_wave_with_card_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/luma_wave_with_card_raw.png" alt="luma_wave_with_card" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">luma_wave_with_card</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_card_between_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_card_between_raw.png" alt="pair_card_between" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_card_between</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_catch_orb_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_catch_orb_raw.png" alt="pair_catch_orb" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_catch_orb</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_envelope_peek_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_envelope_peek_raw.png" alt="pair_envelope_peek" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_envelope_peek</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_giftbox_pop_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_giftbox_pop_raw.png" alt="pair_giftbox_pop" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_giftbox_pop</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_high_five_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_high_five_raw.png" alt="pair_high_five" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_high_five</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_pointing_up_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_pointing_up_raw.png" alt="pair_pointing_up" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_pointing_up</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_scroll_handoff_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_scroll_handoff_raw.png" alt="pair_scroll_handoff" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_scroll_handoff</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_tin_can_phone_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_tin_can_phone_raw.png" alt="pair_tin_can_phone" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_tin_can_phone</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v2_characters/pair_whisper_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v2_characters/pair_whisper_raw.png" alt="pair_whisper" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">pair_whisper</div>
+    
+  </div>
+</a>
+  </div>
+</section>
+
+<section>
+  <h2>V1 · Object-led 3D mascots <span style="opacity:0.6;font-weight:500">· 10</span></h2>
+  <div class="grid">
+    <a class="card" href="images/v1_objects/cozy_mailbox_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/cozy_mailbox_raw.png" alt="cozy_mailbox" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">cozy_mailbox</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/gift_box_opening_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/gift_box_opening_raw.png" alt="gift_box_opening" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">gift_box_opening</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/glowing_orb_jar_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/glowing_orb_jar_raw.png" alt="glowing_orb_jar" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">glowing_orb_jar</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/luma_kai_looking_up_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/luma_kai_looking_up_raw.png" alt="luma_kai_looking_up" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">luma_kai_looking_up</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/luma_whisper_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/luma_whisper_raw.png" alt="luma_whisper" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">luma_whisper</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/luma_with_bell_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/luma_with_bell_raw.png" alt="luma_with_bell" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">luma_with_bell</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/messenger_owl_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/messenger_owl_raw.png" alt="messenger_owl" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">messenger_owl</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/paper_airplane_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/paper_airplane_raw.png" alt="paper_airplane" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">paper_airplane</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/toy_phone_banner_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/toy_phone_banner_raw.png" alt="toy_phone_banner" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">toy_phone_banner</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v1_objects/trophy_confetti_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v1_objects/trophy_confetti_raw.png" alt="trophy_confetti" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">trophy_confetti</div>
+    
+  </div>
+</a>
+  </div>
+</section>
+
+<section>
+  <h2>V0 · Flat (rejected, for comparison) <span style="opacity:0.6;font-weight:500">· 5</span></h2>
+  <div class="grid">
+    <a class="card" href="images/v0_flat/bell_mascot_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v0_flat/bell_mascot_raw.png" alt="bell_mascot" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">bell_mascot</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v0_flat/envelope_sparkles_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v0_flat/envelope_sparkles_raw.png" alt="envelope_sparkles" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">envelope_sparkles</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v0_flat/floating_chip_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v0_flat/floating_chip_raw.png" alt="floating_chip" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">floating_chip</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v0_flat/phone_banner_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v0_flat/phone_banner_raw.png" alt="phone_banner" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">phone_banner</div>
+    
+  </div>
+</a>
+<a class="card" href="images/v0_flat/star_burst_raw.png" target="_blank">
+  <div class="img-wrap"><img src="images/v0_flat/star_burst_raw.png" alt="star_burst" loading="lazy"></div>
+  <div class="meta">
+    <div class="slug">star_burst</div>
+    
+  </div>
+</a>
+  </div>
+</section>
+
+
+<footer>34 images · scroll for context</footer>
+</body>
+</html>
